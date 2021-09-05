@@ -129,7 +129,6 @@ public class UserServlet extends HttpServlet {
                 resp.sendRedirect("error.jsp");
             }
         }
-
         //获得总数量
         int totalCount = userService.getUserCount(queryUserName, queryUserRole);
         //分页处理
@@ -139,9 +138,12 @@ public class UserServlet extends HttpServlet {
         pageSupport.setTotalCount(totalCount);
         currentPageNo = pageSupport.getCurrentPageNo();
         totalPageCount = pageSupport.getTotalPageCount();
-
+        System.out.println(queryUserName);
+        System.out.println(queryUserRole);
+        System.out.println(currentPageNo);
         //获得用户列表
-        List<User> userList = userService.getUserList(queryUserName, queryUserRole, currentPageNo, Constants.PAGESIZE);
+        List<User> userList = userService.getUserList(queryUserName, queryUserRole, currentPageNo,Constants.PAGESIZE);
+        System.out.println(userList);
         //获得角色列表
         RoleServiceImpl roleService = new RoleServiceImpl();
         List<Role> roleList = roleService.getRoleList();

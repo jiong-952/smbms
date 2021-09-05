@@ -2,7 +2,6 @@ package com.zjh.service.provider;
 
 import com.zjh.pojo.Provider;
 
-import java.sql.Connection;
 import java.util.List;
 
 public interface ProviderService {

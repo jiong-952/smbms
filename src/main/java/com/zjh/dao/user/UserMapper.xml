@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjh.dao.user.UserMapper">
+    <select id="getLoginUser"  resultType="user">
+        select * from smbms_user where userCode=#{userCode}
+    </select>
+    <update id="updatePwd">
+        update smbms_user
+        set userPassword= #{password}
+        where id = #{id}
+    </update>
+    <select id="getUserCount" resultType="_int">
+        select count(1) as count from smbms_user u,smbms_role r
+        <where>
+            <if test="true">
+                u.userRole = r.id
+            </if>
+            <if test="userName !=null">
+                AND userName like '%${userName}%'
+            </if>
+            <if test="userRole != 0">
+                and u.userRole = #{userRole}
+            </if>
+        </where>
+    </select>
+    <select id="getUserList" resultType="user">
+        select u.*,r.roleName as userRoleName from smbms_user u,smbms_role r
+        <where>
+            <if test="true">
+                u.userRole = r.id
+            </if>
+            <if test="userName !=null">
+                AND userName like '%${userName}%'
+            </if>
+            <if test="userRole != 0">
+                and u.userRole = #{userRole}
+            </if>
+        </where>
+        order by creationDate DESC limit #{currentPageNo},#{pageSize}
+    </select>
+    <insert id="add" parameterType="user">
+        insert into smbms_user (userCode,userName,userPassword,userRole,gender,birthday,phone,address,creationDate,createdBy)
+        values(#{userCode},#{userName},#{userPassword},#{userRole},#{gender},#{birthday},#{phone},#{address},#{creationDate},#{createdBy})
+    </insert>
+    <delete id="delete">
+        delete from smbms_user where id=#{delId}
+    </delete>
+    <update id="modify" parameterType="user">
+        update smbms_user set userName=#{userName},userRole=#{userRole},gender=#{gender},
+        birthday=#{birthday},phone=#{phone},address=#{address},modifyBy=#{modifyBy},modifyDate=#{modifyDate} where id=#{id}
+    </update>
+    <select id="getUserById" resultType="user">
+        select u.*,r.roleName as userRoleName from smbms_user u,smbms_role r where u.id=#{id} and u.userRole = r.id
+    </select>
+</mapper>
+

@@ -25,6 +25,7 @@ public class LoginServlet extends HttpServlet {
         if(null!=user){
             //登录成功
             req.getSession().setAttribute(Constants.USER_SESSION,user);
+            System.out.println(user);
             //页面跳转
             resp.sendRedirect("jsp/frame.jsp");
         }else {

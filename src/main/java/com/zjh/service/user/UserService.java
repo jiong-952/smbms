@@ -2,8 +2,6 @@ package com.zjh.service.user;
 
 import com.zjh.pojo.User;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
 public interface UserService {

@@ -23,7 +23,7 @@ public class JdbcUtils {
             e.printStackTrace();
         }
         driver = properties.getProperty("driver");
-        url = properties.getProperty("url");
+        url = properties.getProperty("jdbc.url");
         username = properties.getProperty("username");
         password = properties.getProperty("password");
         if(driver!=null && url!=null && username!=null && password!=null){

@@ -1,10 +1,8 @@
 package com.zjh.service.bill;
 
-import com.zjh.dao.BaseDao;
 import com.zjh.dao.bill.BillDao;
 import com.zjh.dao.bill.BillDaoImpl;
 import com.zjh.pojo.Bill;
-import com.zjh.pojo.User;
 import com.zjh.utils.JdbcUtils;
 
 import java.sql.Connection;

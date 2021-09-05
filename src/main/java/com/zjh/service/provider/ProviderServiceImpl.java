@@ -1,11 +1,9 @@
 package com.zjh.service.provider;
 
-import com.zjh.dao.BaseDao;
 import com.zjh.dao.bill.BillDao;
 import com.zjh.dao.bill.BillDaoImpl;
 import com.zjh.dao.provider.ProviderDao;
 import com.zjh.dao.provider.ProviderDaoImpl;
-import com.zjh.pojo.Bill;
 import com.zjh.pojo.Provider;
 import com.zjh.utils.JdbcUtils;
 

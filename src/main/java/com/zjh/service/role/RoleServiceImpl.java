@@ -4,7 +4,6 @@ import com.zjh.dao.role.RoleDao;
 import com.zjh.dao.role.RoleDaoImpl;
 import com.zjh.pojo.Role;
 import com.zjh.utils.JdbcUtils;
-import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
